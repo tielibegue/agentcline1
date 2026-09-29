@@ -36,7 +36,7 @@
                 <label for="titre">Objet de la demande <span class="req">*</span></label>
                 <input type="text" id="titre" name="titre" required maxlength="180"
                        value="{{ old('titre', $modification ? $ticket->titre : '') }}"
-                       placeholder="Ex. : Impression du plumitif impossible sur E-TribCom">
+                       placeholder="Ex. : Impression du plumitif impossible sur just@">
                 @error('titre')<span class="error">{{ $message }}</span>@enderror
             </div>
 

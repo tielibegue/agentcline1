@@ -18,7 +18,7 @@ class DeclarationDemandeTest extends SupportTestCase
                 'priorite' => 'HAUTE',
                 'titre' => 'Impression du plumitif impossible',
                 'description' => "L'impression du plumitif d'audience échoue sur tous les postes du greffe depuis la mise à jour.",
-                'application' => 'E-TribCom AJ',
+                'application' => 'just@ AJ',
                 'module_fonctionnel' => 'ui/aj/co/plumitif',
                 'date_incident' => now()->format('Y-m-d'),
             ])

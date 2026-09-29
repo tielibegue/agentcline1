@@ -42,8 +42,8 @@ class Ticket extends Model
      * @var array<string, string>
      */
     public const APPLICATIONS = [
-        'E-TribCom' => 'E-TribCom (poste de travail)',
-        'E-TribCom AJ' => 'E-TribCom — module Agent Judiciaire',
+        'just@' => 'just@ (poste de travail)',
+        'just@ AJ' => 'just@ — module Agent Judiciaire',
         'serviceweb' => 'Portail serviceweb',
         'wscontentieux' => 'API wscontentieux',
         'wsnoncontentieux' => 'API wsnoncontentieux',
