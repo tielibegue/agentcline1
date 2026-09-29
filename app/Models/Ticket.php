@@ -44,10 +44,10 @@ class Ticket extends Model
     public const APPLICATIONS = [
         'just@' => 'just@ (poste de travail)',
         'just@ AJ' => 'just@ — module Agent Judiciaire',
-        'serviceweb' => 'Portail serviceweb',
-        'wscontentieux' => 'API wscontentieux',
-        'wsnoncontentieux' => 'API wsnoncontentieux',
-        'authentificationApi' => "API d'authentification",
+        'appli1' => 'appli1 (portail web)',
+        'appli2' => 'appli2 (API contentieux)',
+        'appli3' => 'appli3 (API non-contentieux)',
+        'appli4' => "appli4 (API d'authentification)",
         'Autre' => 'Autre / indéterminé',
     ];
 

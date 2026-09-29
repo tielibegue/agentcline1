@@ -93,8 +93,8 @@ footer{max-width:1060px;margin:0 auto 40px;padding:0 22px;color:var(--muted);fon
 <main>
 <section class="card" id="contexte">
 <h2 class="num"><span class="n">1</span>Contexte et problématique</h2>
-<p>Le logiciel <strong>Agent-Justice</strong> (just@, portail serviceweb, API wscontentieux /
-wsnoncontentieux) est utilisé quotidiennement par les <strong>juridictions</strong> (tribunaux de
+<p>Le logiciel <strong>Agent-Justice</strong> (just@, appli1, appli2 /
+appli3) est utilisé quotidiennement par les <strong>juridictions</strong> (tribunaux de
 commerce, cours d’appel, tribunaux de première instance…). Aujourd’hui, les <strong>plaintes</strong>,
 <strong>bugs</strong> et <strong>demandes d’assistance</strong> remontent par téléphone, e-mail ou
 messagerie instantanée, sans traçabilité :</p>
@@ -221,7 +221,7 @@ pièces jointes téléchargeables · fil de discussion · historique horodaté d
 <h2 class="num"><span class="n">7</span>Architecture technique</h2>
 <table class="spec">
 <tr><th>Couche</th><th>Choix</th><th>Justification</th></tr>
-<tr><td>Langage / cadriciel</td><td>PHP 8.3+ · Laravel 13</td><td>Même stack que <code>serviceweb</code> : compétences internes réutilisables</td></tr>
+<tr><td>Langage / cadriciel</td><td>PHP 8.3+ · Laravel 13</td><td>Même stack que <code>appli1</code> : compétences internes réutilisables</td></tr>
 <tr><td>Interface</td><td>Blade + CSS maison (aucun build npm)</td><td>Déploiement immédiat sur Apache, zéro dépendance front</td></tr>
 <tr><td>Base de données</td><td>MySQL <code>support_aj</code> (base dédiée)</td><td>Isolement total des données de production (<code>tcadb</code> untouched)</td></tr>
 <tr><td>Hébergement</td><td>Apache existant, dossier <code>public/</code></td><td>Aucune infrastructure nouvelle</td></tr>
