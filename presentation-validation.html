@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support Agent-Justice — Dossier de présentation et de validation</title>
+<style>
+:root{--navy:#1a2b4a;--navy2:#243a63;--gold:#c9a227;--bg:#eef1f6;--card:#fff;--text:#1e293b;--muted:#64748b;--border:#dbe2ec}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.cover{background:linear-gradient(135deg,#1a2b4a,#243a63 60%,#0f1d33);color:#fff;padding:52px 7% 42px}
+.kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:#e3c15d;margin:0 0 10px}
+.cover h1{margin:0 0 8px;font-size:38px}
+.subtitle{font-size:16px;max-width:780px;color:#dbe4f2}
+.sigle{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#c9a227,#e3c15d);color:#0f1d33;font-weight:800;font-size:25px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 16px;font-size:13px;font-weight:600}
+.chip--warn{background:var(--gold);color:#0f1d33;border-color:var(--gold)}
+.sommaire{background:#fff;border-bottom:1px solid var(--border);padding:14px 7%}
+.sommaire ol{margin:0;padding-left:22px;font-size:14px}
+.sommaire a{color:var(--navy)}
+main{max-width:1060px;margin:0 auto;padding:26px 22px 10px}
+section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:26px 30px;margin-bottom:22px}
+h2.num{font-size:21px;color:var(--navy);margin:0 0 12px;padding-bottom:8px;border-bottom:3px solid var(--gold)}
+h2.num .n{background:var(--navy);color:#fff;border-radius:8px;padding:1px 11px;margin-right:10px;font-size:16px}
+h3{color:var(--navy2);margin:20px 0 8px;font-size:16.5px}
+table.spec{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+table.spec th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;font-size:13px}
+table.spec td{border:1px solid var(--border);padding:9px 12px;vertical-align:top}
+table.spec tr:nth-child(even) td{background:#f7fafd}
+.badge{display:inline-block;padding:2px 11px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.badge--info{background:#dbeafe;color:#1d4ed8}.badge--success{background:#dcfce7;color:#15803d}.badge--warning{background:#fef3c7;color:#92400e}.badge--danger{background:#fee2e2;color:#b91c1c}.badge--purple{background:#ede9fe;color:#5b21b6}.badge--neutral{background:#e2e8f0;color:#475569}.badge--dark{background:#1e293b;color:#e2e8f0}
+.note{background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:12px 16px;font-size:14px;margin:12px 0}
+.warnbox{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:12px 16px;font-size:14px;margin:12px 0}
+ul.check{list-style:none;padding:0}ul.check li{padding-left:28px;position:relative;margin:6px 0}ul.check li::before{content:"✓";position:absolute;left:4px;color:#15803d;font-weight:800}
+.flow{display:flex;align-items:stretch;flex-wrap:wrap;margin:14px 0}
+.step{flex:1;min-width:118px;background:#f1f5fb;border:2px solid #243a63;border-radius:10px;padding:10px;text-align:center;font-size:13px;font-weight:700}
+.step small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.step--end{border-color:#15803d;background:#f0fdf4}
+.step--out{border-color:#b91c1c;background:#fef2f2}
+.arrow{align-self:center;padding:0 5px;font-size:19px;color:#243a63;font-weight:800}
+.mock{border:1px solid #b9c4d6;border-radius:12px;overflow:hidden;margin:14px 0;box-shadow:0 8px 26px rgba(15,23,42,.14)}
+.mock-bar{background:#e6ebf2;padding:8px 14px;display:flex;gap:7px;align-items:center;font-size:12px;color:var(--muted)}
+.dot{width:11px;height:11px;border-radius:50%}.dot.r{background:#ef4444}.dot.y{background:#f59e0b}.dot.g{background:#22c55e}
+.mock-body{display:flex;min-height:280px}
+.mock-side{width:172px;background:#1a2b4a;color:#dbe4f2;font-size:12px;padding:14px 12px;flex-shrink:0}
+.mock-side div{padding:6px 8px;border-radius:6px;margin-bottom:4px}
+.mock-side .on{background:rgba(201,162,39,.35);color:#fff;font-weight:700}
+.mock-main{flex:1;padding:16px;background:#f4f6fa}
+.mock-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.mock-kpi{background:#fff;border:1px solid var(--border);border-left:5px solid #2563eb;border-radius:8px;padding:8px 10px;font-size:11px;color:var(--muted)}
+.mock-kpi b{display:block;font-size:19px;color:var(--navy)}
+.mock-table{background:#fff;border:1px solid var(--border);border-radius:8px;font-size:12px}
+.mock-table .row{display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border);align-items:center}
+.mock-table .row:last-child{border-bottom:none}
+.mock-table .head{background:#eef2f7;font-weight:700}
+.mb{font-size:10px;font-weight:700;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.mb--i{background:#dbeafe;color:#1d4ed8}.mb--s{background:#dcfce7;color:#15803d}.mb--w{background:#fef3c7;color:#92400e}.mb--d{background:#fee2e2;color:#b91c1c}.mb--p{background:#ede9fe;color:#5b21b6}.mb--n{background:#e2e8f0;color:#475569}
+footer{max-width:1060px;margin:0 auto 40px;padding:0 22px;color:var(--muted);font-size:13px}
+.btn-print{position:fixed;right:22px;bottom:22px;background:var(--navy);color:#fff;border:none;border-radius:999px;padding:13px 24px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+@media print{.btn-print,.sommaire{display:none}body{background:#fff}section.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="sigle">AJ</div>
+  <p class="kicker">ASCEND Technology — Dossier de validation</p>
+  <h1>Support Agent-Justice</h1>
+  <p class="subtitle">Application web de réception des <strong>plaintes et bugs constatés par les juridictions</strong>,
+  et de leur <strong>résolution par l’équipe support</strong> — demandes, suivi, pièces jointes, historique complet.</p>
+  <div class="meta">
+    <span class="chip">Version 1.0</span>
+    <span class="chip">29 septembre 2026</span>
+    <span class="chip">Réf. : AJ-SUPPORT-2026-09</span>
+    <span class="chip chip--warn">⏳ EN ATTENTE DE VALIDATION</span>
+  </div>
+</header>
+<nav class="sommaire">
+  <ol>
+    <li><a href="#contexte">Contexte et problématique</a></li>
+    <li><a href="#objectifs">Objectifs du projet</a></li>
+    <li><a href="#perimetre">Périmètre fonctionnel</a></li>
+    <li><a href="#cycle">Cycle de vie d’une demande</a></li>
+    <li><a href="#roles">Rôles et habilitations</a></li>
+    <li><a href="#maquette">Aperçu visuel (maquette)</a></li>
+    <li><a href="#architecture">Architecture technique</a></li>
+    <li><a href="#securite">Sécurité et confidentialité</a></li>
+    <li><a href="#demo">Démonstration et recette</a></li>
+    <li><a href="#jalons">Jalons et prochaines étapes</a></li>
+    <li><a href="#decision">Décision de validation</a></li>
+  </ol>
+</nav>
+<main>
+<section class="card" id="contexte">
+<h2 class="num"><span class="n">1</span>Contexte et problématique</h2>
+<p>Le logiciel <strong>Agent-Justice</strong> (E-TribCom, portail serviceweb, API wscontentieux /
+wsnoncontentieux) est utilisé quotidiennement par les <strong>juridictions</strong> (tribunaux de
+commerce, cours d’appel, tribunaux de première instance…). Aujourd’hui, les <strong>plaintes</strong>,
+<strong>bugs</strong> et <strong>demandes d’assistance</strong> remontent par téléphone, e-mail ou
+messagerie instantanée, sans traçabilité :</p>
+<ul>
+<li>❌ demandes perdues ou traitées en double ;</li>
+<li>❌ aucune visibilité pour la juridiction sur l’avancement ;</li>
+<li>❌ pas de statistiques (volumes, délais, juridictions les plus impactées) ;</li>
+<li>❌ captures d’écran et journaux d’erreur éparpillés.</li>
+</ul>
+<div class="note"><strong>Réponse proposée :</strong> une <strong>application web de support</strong> centralisant
+la déclaration, le traitement et la résolution des demandes — chaque demande reçoit une
+<strong>référence unique</strong> (ex. <code>SUP-2026-00001</code>) et un <strong>historique complet</strong>.</div>
+</section>
+<section class="card" id="objectifs">
+<h2 class="num"><span class="n">2</span>Objectifs du projet</h2>
+<ul class="check">
+<li><strong>Réception structurée</strong> : formulaire unique de déclaration (type, priorité, contexte technique, pièces jointes).</li>
+<li><strong>Résolution pilotée</strong> : affectation, avancement, résolution consignée, rejet motivé, clôture par la juridiction.</li>
+<li><strong>Transparence</strong> : chaque juridiction suit ses demandes ; chaque action est journalisée et horodatée.</li>
+<li><strong>Pilotage</strong> : tableau de bord (volumes, retards, délais moyens), export CSV pour les rapports.</li>
+<li><strong>Sécurité</strong> : accès par rôles, isolement des données entre juridictions, pièces jointes filtrées.</li>
+</ul>
+</section>
+<section class="card" id="perimetre">
+<h2 class="num"><span class="n">3</span>Périmètre fonctionnel</h2>
+<h3>Côté juridiction (déclarant)</h3>
+<ul class="check">
+<li>Déclaration d’une demande : bug, plainte, incident bloquant, demande d’assistance ;</li>
+<li>contexte technique (application, module/écran, version, poste, date d’incident, reproductibilité) ;</li>
+<li>pièces jointes (captures, journaux, documents — 5 fichiers, 10 Mo chacun) ;</li>
+<li>fil de discussion avec le support ; confirmation de la résolution (clôture).</li>
+</ul>
+<h3>Côté support (traitement et résolution)</h3>
+<ul class="check">
+<li>Tableau de bord : volumes, demandes ouvertes, <strong>en retard</strong>, à affecter, taux et délai moyen de résolution ;</li>
+<li>liste filtrable (statut, type, priorité, application, juridiction, agent), tri, pagination, <strong>export CSV</strong> ;</li>
+<li>affectation à un agent, avancement du statut, <strong>résolution consignée</strong>, <strong>rejet motivé</strong> ;</li>
+<li><strong>notes internes</strong> invisibles aux juridictions.</li>
+</ul>
+<h3>Côté administration</h3>
+<ul class="check">
+<li>Référentiel des juridictions (code, libellé, type, ville, contact, état actif/inactif) ;</li>
+<li>comptes utilisateurs (administrateur, support, juridiction) avec activation/désactivation.</li>
+</ul>
+</section>
+<section class="card" id="cycle">
+<h2 class="num"><span class="n">4</span>Cycle de vie d’une demande</h2>
+<div class="flow">
+<div class="step">NOUVELLE<small>déclarée par la juridiction</small></div><div class="arrow">→</div>
+<div class="step">AFFECTÉE<small>prise en charge par un agent</small></div><div class="arrow">→</div>
+<div class="step">EN COURS<small>diagnostic / correctif</small></div><div class="arrow">→</div>
+<div class="step step--end">RÉSOLUE<small>solution consignée</small></div><div class="arrow">→</div>
+<div class="step step--end">CLÔTURÉE<small>confirmée par la juridiction</small></div>
+</div>
+<div class="flow">
+<div class="step step--out">REJETÉE<small>motif obligatoire (doublon, hors périmètre…)</small></div>
+<div class="arrow">·</div>
+<div class="step">EN ATTENTE<small>complément demandé à la juridiction</small></div>
+</div>
+<h3>Délais indicatifs de résolution</h3>
+<table class="spec">
+<tr><th>Priorité</th><th>Délai attendu</th><th>Exemple</th></tr>
+<tr><td><span class="badge badge--danger">Critique</span></td><td>8 h</td><td>Blocage complet d’un module en pleine audience</td></tr>
+<tr><td><span class="badge badge--warning">Haute</span></td><td>24 h</td><td>Anomalie bloquant un enrôlement</td></tr>
+<tr><td><span class="badge badge--info">Moyenne</span></td><td>72 h</td><td>Erreur d’affichage, lenteur non bloquante</td></tr>
+<tr><td><span class="badge badge--neutral">Basse</span></td><td>120 h</td><td>Demande d’évolution, coquille</td></tr>
+</table>
+<div class="warnbox">⚠ Toute demande dépassant son délai est signalée <strong>« En retard »</strong>
+dans les listes, sur sa fiche et dans l’export CSV.</div>
+</section>
+<section class="card" id="roles">
+<h2 class="num"><span class="n">5</span>Rôles et habilitations</h2>
+<table class="spec">
+<tr><th>Fonction</th><th><span class="badge badge--info">Juridiction</span></th><th><span class="badge badge--purple">Support</span></th><th><span class="badge badge--dark">Admin</span></th></tr>
+<tr><td>Déclarer une plainte / un bug</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Consulter ses propres demandes</td><td>✓</td><td>✓ (toutes)</td><td>✓ (toutes)</td></tr>
+<tr><td>Joindre des fichiers, discuter</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Affecter, changer le statut, résoudre, rejeter</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Rédiger des notes internes</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Confirmer une résolution (clôturer)</td><td>✓ (ses demandes)</td><td>✓</td><td>✓</td></tr>
+<tr><td>Gérer juridictions et comptes</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Exporter en CSV</td><td>✓ (ses données)</td><td>✓</td><td>✓</td></tr>
+</table>
+<div class="note"><strong>Isolement garanti :</strong> une juridiction ne voit que les demandes de sa propre
+structure ; les notes internes du support lui sont invisibles.</div>
+</section>
+<section class="card" id="maquette">
+<h2 class="num"><span class="n">6</span>Aperçu visuel (maquette)</h2>
+<p><strong>Tableau de bord du support</strong> — indicateurs, filtres et file des demandes :</p>
+<div class="mock">
+<div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+Support Agent-Justice — Tableau de bord</div>
+<div class="mock-body">
+<div class="mock-side">
+<div>📊 Tableau de bord</div>
+<div class="on">📥 Demandes</div>
+<div>➕ Nouvelle demande</div>
+<div>🔔 À affecter (3)</div>
+<div>🏛️ Juridictions</div>
+<div>👥 Comptes</div>
+</div>
+<div class="mock-main">
+<div class="mock-kpis">
+<div class="mock-kpi"><b>128</b>Demandes au total</div>
+<div class="mock-kpi" style="border-left-color:#b45309"><b>34</b>Encore ouvertes</div>
+<div class="mock-kpi" style="border-left-color:#b91c1c"><b>5</b>En retard</div>
+<div class="mock-kpi" style="border-left-color:#15803d"><b>86</b>Résolues</div>
+</div>
+<div class="mock-table">
+<div class="row head"><span>Référence</span><span>Objet</span><span>Type</span><span>Statut</span></div>
+<div class="row"><span><b>SUP-2026-00128</b></span><span>Blocage du module petits litiges</span><span class="mb mb--d">Incident</span><span class="mb mb--w">En cours</span></div>
+<div class="row"><span><b>SUP-2026-00127</b></span><span>Impression du plumitif impossible</span><span class="mb mb--d">Bug</span><span class="mb mb--p">Affectée</span></div>
+<div class="row"><span><b>SUP-2026-00126</b></span><span>Lenteur à la consultation</span><span class="mb mb--w">Plainte</span><span class="mb mb--i">Nouvelle</span></div>
+<div class="row"><span><b>SUP-2026-00125</b></span><span>Calcul des frais de greffe</span><span class="mb mb--d">Bug</span><span class="mb mb--s">Résolue</span></div>
+</div>
+</div>
+</div>
+</div>
+<p class="note" style="margin-top:0"><strong>Fiche d’une demande</strong> : description et contexte technique ·
+résolution consignée · panneau de traitement (affectation, statut, résolution, rejet) ·
+pièces jointes téléchargeables · fil de discussion · historique horodaté de chaque action.</p>
+</section>
+<section class="card" id="architecture">
+<h2 class="num"><span class="n">7</span>Architecture technique</h2>
+<table class="spec">
+<tr><th>Couche</th><th>Choix</th><th>Justification</th></tr>
+<tr><td>Langage / cadriciel</td><td>PHP 8.3+ · Laravel 13</td><td>Même stack que <code>serviceweb</code> : compétences internes réutilisables</td></tr>
+<tr><td>Interface</td><td>Blade + CSS maison (aucun build npm)</td><td>Déploiement immédiat sur Apache, zéro dépendance front</td></tr>
+<tr><td>Base de données</td><td>MySQL <code>support_aj</code> (base dédiée)</td><td>Isolement total des données de production (<code>tcadb</code> untouched)</td></tr>
+<tr><td>Hébergement</td><td>Apache existant, dossier <code>public/</code></td><td>Aucune infrastructure nouvelle</td></tr>
+<tr><td>Qualité</td><td>30 tests automatisés, style Pint</td><td>Non-régression sur tout le cycle demande → résolution</td></tr>
+</table>
+<h3>Modèle de données (8 tables)</h3>
+<p><code>juridictions</code> · <code>users</code> (rôle, rattachement, actif) · <code>tickets</code>
+(référence <code>SUP-AAAA-NNNNN</code>, type, priorité, statut, contexte, résolution) ·
+<code>ticket_commentaires</code> (public / interne) · <code>ticket_pieces_jointes</code> ·
+<code>ticket_historiques</code> (audit complet) · <code>sessions</code> · <code>cache</code>.</p>
+</section>
+<section class="card" id="securite">
+<h2 class="num"><span class="n">8</span>Sécurité et confidentialité</h2>
+<ul class="check">
+<li>Connexion limitée à <strong>5 tentatives</strong>, comptes activables/désactivables ;</li>
+<li><strong>politiques d’accès par rôle</strong> vérifiées à chaque écran et chaque action ;</li>
+<li>validation serveur <strong>en français</strong>, protection CSRF sur tous les formulaires ;</li>
+<li>téléversements filtrés (extensions autorisées, 10 Mo max), fichiers <strong>hors accès web direct</strong> ;</li>
+<li>base de données <strong>dédiée</strong> <code>support_aj</code> — aucune écriture dans les bases métier.</li>
+</ul>
+</section>
+<section class="card" id="demo">
+<h2 class="num"><span class="n">9</span>Démonstration et recette</h2>
+<p>Une base de démonstration est fournie (6 juridictions, 9 comptes, 9 demandes couvrant
+tout le cycle). Mot de passe unique de démonstration : <code>Support1234</code>.</p>
+<table class="spec">
+<tr><th>Profil de test</th><th>Identifiant</th><th>Scénario à valider</th></tr>
+<tr><td>Juridiction</td><td><code>contact-tca-abj@juridictions.local</code></td><td>Déclarer une plainte avec capture, suivre sa demande, confirmer la résolution</td></tr>
+<tr><td>Support</td><td><code>awa.kone@support.local</code></td><td>Affecter, commenter (note interne), consigner la résolution, exporter le CSV</td></tr>
+<tr><td>Administrateur</td><td><code>admin@support.local</code></td><td>Créer une juridiction, créer un compte, désactiver un compte</td></tr>
+</table>
+<h3>Grille de recette proposée au valideur</h3>
+<table class="spec">
+<tr><th>#</th><th>Cas de test</th><th>Résultat attendu</th><th style="width:120px;">Verdict ☐/☑</th></tr>
+<tr><td>R1</td><td>Déclaration d’un bug avec 2 pièces jointes</td><td>Référence <code>SUP-…</code> créée, statut <em>Nouvelle</em></td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R2</td><td>Affectation à un agent puis passage « En cours »</td><td>Historique horodaté des 2 actions</td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R3</td><td>Résolution consignée + note interne</td><td>Juridiction voit la résolution, pas la note interne</td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R4</td><td>Clôture par la juridiction</td><td>Statut <em>Clôturée</em>, demande archivée</td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R5</td><td>Rejet motivé d’un doublon</td><td>Motif visible, demande fermée</td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R6</td><td>Isolement : 2 juridictions différentes</td><td>Chacune ne voit que ses demandes</td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R7</td><td>Export CSV de la liste filtrée</td><td>Fichier Excel-compatible (point-virgule, UTF-8)</td><td>☐ OK / ☐ KO</td></tr>
+<tr><td>R8</td><td>Compte désactivé puis 6ᵉ tentative de connexion</td><td>Connexion refusée + verrouillage temporaire</td><td>☐ OK / ☐ KO</td></tr>
+</table>
+</section>
+<section class="card" id="jalons">
+<h2 class="num"><span class="n">10</span>Jalons et prochaines étapes</h2>
+<table class="spec">
+<tr><th>Jalon</th><th>Contenu</th><th>État</th></tr>
+<tr><td>M1 — Socle</td><td>Déclaration, traitement, résolution, historique, sécurité, tests (30/30)</td><td><span class="badge badge--success">Livré</span></td></tr>
+<tr><td>M2 — Mise en production</td><td>Base <code>support_aj</code>, VirtualHost Apache, mots de passe réels, formation</td><td><span class="badge badge--warning">Après validation</span></td></tr>
+<tr><td>M3 — Notifications e-mail</td><td>Nouvelle demande → support · résolution → juridiction</td><td><span class="badge badge--neutral">Option</span></td></tr>
+<tr><td>M4 — Branchement E-TribCom</td><td>API REST : déclaration directe depuis le poste (bouton « Signaler un bug »)</td><td><span class="badge badge--neutral">Option</span></td></tr>
+<tr><td>M5 — Rapports</td><td>Rapports mensuels PDF par juridiction, statistiques avancées</td><td><span class="badge badge--neutral">Option</span></td></tr>
+</table>
+</section>
+<section class="card" id="decision">
+<h2 class="num"><span class="n">11</span>Décision de validation ✍</h2>
+<p>Après présentation et recette, le valideur est invité à cocher l’une des options et à signer :</p>
+<table class="spec">
+<tr><th style="width:40px;">☐/☑</th><th>Décision</th></tr>
+<tr><td><span style="display:inline-block;width:15px;height:15px;border:2px solid #1a2b4a;border-radius:4px;"></span></td><td><strong>Validé sans réserve</strong> — passage en production (M2) autorisé.</td></tr>
+<tr><td><span style="display:inline-block;width:15px;height:15px;border:2px solid #1a2b4a;border-radius:4px;"></span></td><td><strong>Validé avec réserves</strong> — réserves listées ci-dessous, à lever avant production.</td></tr>
+<tr><td><span style="display:inline-block;width:15px;height:15px;border:2px solid #1a2b4a;border-radius:4px;"></span></td><td><strong>Non validé</strong> — motifs et demandes d’évolution ci-dessous.</td></tr>
+</table>
+<p><strong>Réserves / remarques :</strong></p>
+<p style="border:1px solid var(--border);border-radius:8px;min-height:88px;padding:10px 14px;color:#94a3b8;">
+(écrire ici…)</p>
+<table class="spec">
+<tr><td style="width:50%;height:64px;"><strong>Le valideur</strong><br>Nom : ………………………………………<br>Fonction : …………………………………<br>Date et signature :</td>
+<td><strong>Pour l’équipe projet</strong><br>Nom : ………………………………………<br>Fonction : …………………………………<br>Date et signature :</td></tr>
+</table>
+</section>
+</main>
+<footer>
+<p>Support Agent-Justice v1.0 — Réf. AJ-SUPPORT-2026-09 — Document généré le 29 septembre 2026.
+Application : <code>C:\Users\hp\Documents\PROJETS\ASCEND\supportJuridictions</code> ·
+Ce fichier : <code>presentation-validation.html</code> (autonome, imprimable, diffusable par e-mail).</p>
+</footer>
+<button class="btn-print" onclick="window.print()">🖨 Imprimer / PDF</button>
+</body>
+</html>
