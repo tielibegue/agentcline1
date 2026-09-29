@@ -53,7 +53,37 @@ Mot de passe unique de démonstration : **`Support1234`**
 
 > ⚠️ **Changez ces mots de passe avant toute exposition réseau.**
 
-## Déploiement en production (MySQL + Apache)
+## Déploiement réalisé (serveur local — serveur existant Apache)
+
+Configuration en place et validée le 29/09/2026 :
+
+| Élément | Valeur |
+|---|---|
+| Serveur web | Apache 2.4.41 (`C:\apache24`), **PHP 8.4.14** (`mod_php`, dossiers `php84`) |
+| URL de l'application | `http://<ip-du-serveur>:8080` (vhost `support.local`) |
+| DocumentRoot | `C:\Users\hp\Documents\PROJETS\ASCEND\supportJuridictions\public` |
+| Base de données | MySQL `192.168.1.202:3306` → base **`support_aj`** (dédiée, `tcadb` inchangée) |
+| Sessions / cache / files | `database` |
+| Port 80 | inchangé — sert l'application existante `htdocs\rccm` |
+
+**Fichiers de configuration modifiés** (sauvegardes `*.bak-cline` à côté) :
+- `C:\apache24\conf\httpd.conf` → `Listen 8080`, inclusion de `httpd-vhosts.conf`, module PHP 8.4
+- `C:\apache24\conf\extra\httpd-vhosts.conf` → vhost de l'application, vhosts d'exemple désactivés
+- `C:\apache24\php84\php.ini` → extensions `pdo_sqlite`/`sqlite3`, `extension_dir` absolu
+- `.env` du projet → `DB_*` sur `support_aj`, `APP_URL=http://localhost:8080`
+
+**Démarrer / redémarrer Apache** (aucun service Windows installé) :
+```powershell
+# Démarrer (processus détaché, survit à la fermeture du terminal)
+Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine='C:\apache24\bin\httpd.exe -d C:/apache24'}
+# Redémarrer
+Get-Process httpd | Stop-Process -Force
+Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine='C:\apache24\bin\httpd.exe -d C:/apache24'}
+# Vérifier la configuration
+C:\apache24\bin\httpd.exe -t
+```
+
+## Autre déploiement (nouveau serveur, à partir de zéro)
 
 1. **Créer une base dédiée** (⚠️ ne pas réutiliser `tcadb` ni les bases applicatives) :
 
